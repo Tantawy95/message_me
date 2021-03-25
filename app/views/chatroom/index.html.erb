@@ -12,28 +12,24 @@
         <div class="ui feed">
           <div class="event">
             <div class="content">
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Hi
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
+              <%= render @messages %>
             </div>
           </div>
         </div>
       </div>
+      <div class="extra content">
+        <form class="ui reply form">
+          <div class="field">
+            <div class="ui fluid icon input">
+              <input type="text" placeholder="Enter a message...">
+              <i class="bordered inverted yellow paper plane icon"></i>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
+
 
 
   <div class="four wide column">
