@@ -5,27 +5,27 @@
 </h2>
 
 
-<div class="ui grid">
+<div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card" id="chatbox">
-      <div class="content">
+      <div class="content"  id = "messages">
         <div class="ui feed">
           <div class="event">
             <div class="content">
-              <%= render @messages %>
+              <div id = "message-container">
+                <%= render @messages %>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="extra content">
-        <form class="ui reply form">
-          <div class="field">
-            <div class="ui fluid icon input">
-              <input type="text" placeholder="Enter a message...">
-              <i class="bordered inverted yellow paper plane icon"></i>
+        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
+          <div class="ui fluid icon input">
+            <%= f.text_field :body %>
+            <%= f.button '  <i class="bordered inverted yellow paper plane icon"></i>'.html_safe %>
             </div>
-          </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
