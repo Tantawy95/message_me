@@ -11,21 +11,18 @@
       <div class="content"  id = "messages">
         <div class="ui feed">
           <div class="event">
-            <div class="content">
-              <div id = "message-container">
+            <div class="content" id = "message-container">
                 <%= render @messages %>
-              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="extra content">
+      <div class="extra content" id = "econ">
         <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
-          <div class="ui fluid icon input">
-            <%= f.text_field :body %>
-            <%= f.button '  <i class="bordered inverted yellow paper plane icon"></i>'.html_safe %>
-            </div>
+          <%= f.text_field :body, class: "ui fluid icon input" %>
+          <%= f.button '<i class="right bordered inverted yellow paper plane icon"></i>'.html_safe %>
         <% end %>
+
       </div>
     </div>
   </div>
@@ -35,16 +32,15 @@
   <div class="four wide column">
     <div class="ui fluid raised card" id ="chatbox">
       <div class="content">
+        <h2>Oniline Users</h2>
         <div class="ui inverted vertical menu">
-          <a class="active item">
-            Home
-          </a>
-          <a class="item">
-            Messages
-          </a>
-          <a class="item">
-            Friends
-          </a>
+           <% @online_users.each do |u| %>
+             <% if u.username != current_user.username %>
+               <a class="active item">
+             <%= u.username %>
+               </a>
+              <% end %>
+           <% end %>
         </div>
       </div>
     </div>

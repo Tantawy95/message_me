@@ -15,6 +15,17 @@
   margin-top: 6px;
 }
 #messages{
-  height: 15em;
   overflow: auto;
+}
+
+#space-seg{
+  margin-top: 10px;
+}
+#icon{
+  margin-top: 5px;
+}
+#econ{
+  button {
+    display: none;
+  }
 }
