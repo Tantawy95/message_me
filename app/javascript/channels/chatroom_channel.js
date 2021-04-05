@@ -14,6 +14,7 @@ consumer.subscriptions.create("ChatroomChannel", {
     if ($('#messages').length > 0) {
        $('#messages').scrollTop($('#messages')[0].scrollHeight);
      }
+     $('#icon-input').val('');
     // Called when there's incoming data on the websocket for this channel
   }
 });
